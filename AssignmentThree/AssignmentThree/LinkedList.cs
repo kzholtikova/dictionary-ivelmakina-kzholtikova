@@ -39,6 +39,23 @@ public class LinkedList
             Console.WriteLine($"{key} is not in the list.");
         } else { currentNode.Next = currentNode.Next.Next; }
     }
+    
+    public LinkedListNode? GetBy(string key)
+    {
+        LinkedListNode? currentNode = _head;
+        
+        while (currentNode != null && currentNode.Pair.Key != key)
+        {
+            currentNode = currentNode.Next;
+        }
+
+        if (currentNode == null)
+        {
+            Console.WriteLine($"{key} is not in the list.");
+        }
+        
+        return currentNode;
+    }
 }
 
 public class LinkedListNode(KeyValuePair pair, LinkedListNode? next = null)
