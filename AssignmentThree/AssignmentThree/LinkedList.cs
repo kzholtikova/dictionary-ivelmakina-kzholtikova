@@ -6,11 +6,11 @@ public class LinkedList
 
     public void Add(string key, string value)
     {
-        if (_head is not null)
+        if (_head != null)
         {
             LinkedListNode currentNode = _head;
             
-            while (currentNode.Next is not null)
+            while (currentNode.Next != null)
             {
                 currentNode = currentNode.Next;
             }
@@ -34,10 +34,10 @@ public class LinkedList
             currentNode = currentNode.Next;
         }
 
-        if (currentNode?.Next == null)
+        if (currentNode?.Next != null)
         {
-            Console.WriteLine($"{key} is not in the list.");
-        } else { currentNode.Next = currentNode.Next.Next; }
+            currentNode.Next = currentNode.Next.Next;
+        }
     }
     
     public LinkedListNode? GetBy(string key)
@@ -47,11 +47,6 @@ public class LinkedList
         while (currentNode != null && currentNode.Pair.Key != key)
         {
             currentNode = currentNode.Next;
-        }
-
-        if (currentNode == null)
-        {
-            Console.WriteLine($"{key} is not in the list.");
         }
         
         return currentNode;
@@ -79,7 +74,7 @@ public class LinkedListNode(KeyValuePair pair, LinkedListNode? next = null)
 
     public override string ToString()
     {
-        return $"{Pair}\n";
+        return $"{Pair} ";
     }
 }
 
