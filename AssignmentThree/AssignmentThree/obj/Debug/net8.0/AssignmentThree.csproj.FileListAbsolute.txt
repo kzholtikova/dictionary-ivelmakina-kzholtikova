@@ -1,0 +1,15 @@
+C:\Users\user\Documents\GitHub\assignment-three-v3-ivelmakina-kzholtikova\AssignmentThree\AssignmentThree\bin\Debug\net8.0\AssignmentThree.exe
+C:\Users\user\Documents\GitHub\assignment-three-v3-ivelmakina-kzholtikova\AssignmentThree\AssignmentThree\bin\Debug\net8.0\AssignmentThree.deps.json
+C:\Users\user\Documents\GitHub\assignment-three-v3-ivelmakina-kzholtikova\AssignmentThree\AssignmentThree\bin\Debug\net8.0\AssignmentThree.runtimeconfig.json
+C:\Users\user\Documents\GitHub\assignment-three-v3-ivelmakina-kzholtikova\AssignmentThree\AssignmentThree\bin\Debug\net8.0\AssignmentThree.dll
+C:\Users\user\Documents\GitHub\assignment-three-v3-ivelmakina-kzholtikova\AssignmentThree\AssignmentThree\bin\Debug\net8.0\AssignmentThree.pdb
+C:\Users\user\Documents\GitHub\assignment-three-v3-ivelmakina-kzholtikova\AssignmentThree\AssignmentThree\obj\Debug\net8.0\AssignmentThree.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\GitHub\assignment-three-v3-ivelmakina-kzholtikova\AssignmentThree\AssignmentThree\obj\Debug\net8.0\AssignmentThree.AssemblyInfoInputs.cache
+C:\Users\user\Documents\GitHub\assignment-three-v3-ivelmakina-kzholtikova\AssignmentThree\AssignmentThree\obj\Debug\net8.0\AssignmentThree.AssemblyInfo.cs
+C:\Users\user\Documents\GitHub\assignment-three-v3-ivelmakina-kzholtikova\AssignmentThree\AssignmentThree\obj\Debug\net8.0\AssignmentThree.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\GitHub\assignment-three-v3-ivelmakina-kzholtikova\AssignmentThree\AssignmentThree\obj\Debug\net8.0\AssignmentThree.sourcelink.json
+C:\Users\user\Documents\GitHub\assignment-three-v3-ivelmakina-kzholtikova\AssignmentThree\AssignmentThree\obj\Debug\net8.0\AssignmentThree.dll
+C:\Users\user\Documents\GitHub\assignment-three-v3-ivelmakina-kzholtikova\AssignmentThree\AssignmentThree\obj\Debug\net8.0\refint\AssignmentThree.dll
+C:\Users\user\Documents\GitHub\assignment-three-v3-ivelmakina-kzholtikova\AssignmentThree\AssignmentThree\obj\Debug\net8.0\AssignmentThree.pdb
+C:\Users\user\Documents\GitHub\assignment-three-v3-ivelmakina-kzholtikova\AssignmentThree\AssignmentThree\obj\Debug\net8.0\AssignmentThree.genruntimeconfig.cache
+C:\Users\user\Documents\GitHub\assignment-three-v3-ivelmakina-kzholtikova\AssignmentThree\AssignmentThree\obj\Debug\net8.0\ref\AssignmentThree.dll

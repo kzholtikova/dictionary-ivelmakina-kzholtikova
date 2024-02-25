@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/Users/owner/.nuget/packages/": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/owner/Storage/KSE/IT/ADS/assignment-three-ivelmakina-kzholtikova/AssignmentThree/AssignmentThree/AssignmentThree.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\assignment-three-v3-ivelmakina-kzholtikova\\AssignmentThree\\AssignmentThree\\AssignmentThree.csproj",
       "projectName": "AssignmentThree",
-      "projectPath": "/Users/owner/Storage/KSE/IT/ADS/assignment-three-ivelmakina-kzholtikova/AssignmentThree/AssignmentThree/AssignmentThree.csproj",
-      "packagesPath": "/Users/owner/.nuget/packages/",
-      "outputPath": "/Users/owner/Storage/KSE/IT/ADS/assignment-three-ivelmakina-kzholtikova/AssignmentThree/AssignmentThree/obj/",
+      "projectPath": "C:\\Users\\user\\Documents\\GitHub\\assignment-three-v3-ivelmakina-kzholtikova\\AssignmentThree\\AssignmentThree\\AssignmentThree.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\Documents\\GitHub\\assignment-three-v3-ivelmakina-kzholtikova\\AssignmentThree\\AssignmentThree\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/owner/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/Users/owner/.dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\user\\.dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
