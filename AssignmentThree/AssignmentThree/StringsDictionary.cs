@@ -41,7 +41,20 @@ public class StringsDictionary
     
     public string? GetBy(string key)
     {
+        int bucketPosition = CalculateHash(key) % InitialSize;
         
+        if (_buckets[bucketPosition] != null)
+        {
+            LinkedListNode? node = _buckets[bucketPosition]!.GetBy(key);
+
+            if (node != null)
+            {
+                return node.Pair.Value;
+            }        
+        }
+
+        Console.WriteLine($"{key} is not in the dictionary");
+        return null;
     }
 
     private int CalculateHash(string key)
