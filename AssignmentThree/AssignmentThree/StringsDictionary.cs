@@ -14,29 +14,26 @@ public class StringsDictionary
             _buckets[bucketPosition] = new LinkedList();
         }
         
-        LinkedListNode? node = _buckets[bucketPosition]!.GetBy(key);
+        LinkedListNode? node = _buckets[bucketPosition]?.GetBy(key);
         if (node != null)
         {
             node.Pair.Value = value;
-        } else { _buckets[bucketPosition]!.Add(key, value); }
+        } else { _buckets[bucketPosition]?.Add(key, value); }
     }
      
     public void RemoveBy(string key)
     {
         int bucketPosition = CalculateHash(key) % InitialSize;
-        string message = $"{key} is not in the dictionary";
         
         if (_buckets[bucketPosition] != null)
         {
-            LinkedListNode? node = _buckets[bucketPosition]!.GetBy(key);
+            LinkedListNode? node = _buckets[bucketPosition]?.GetBy(key);
 
             if (node != null)
             {
-                _buckets[bucketPosition]!.RemoveBy(key);
-            }
-            else { Console.WriteLine(message); }
-        }
-        else { Console.WriteLine(message); }
+                _buckets[bucketPosition]?.RemoveBy(key);
+            } 
+        } 
     }
     
     public string? GetBy(string key)
@@ -45,15 +42,14 @@ public class StringsDictionary
         
         if (_buckets[bucketPosition] != null)
         {
-            LinkedListNode? node = _buckets[bucketPosition]!.GetBy(key);
+            LinkedListNode? node = _buckets[bucketPosition]?.GetBy(key);
 
             if (node != null)
             {
                 return node.Pair.Value;
             }        
         }
-
-        Console.WriteLine($"{key} is not in the dictionary");
+        
         return null;
     }
 

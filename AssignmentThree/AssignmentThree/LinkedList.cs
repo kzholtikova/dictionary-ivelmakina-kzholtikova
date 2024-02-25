@@ -37,8 +37,7 @@ public class LinkedList
         if (currentNode?.Next != null)
         {
             currentNode.Next = currentNode.Next.Next;
-        } else { Console.WriteLine($"{key} is not in the list.");
-        }
+        } 
     }
     
     public LinkedListNode? GetBy(string key)
@@ -48,11 +47,6 @@ public class LinkedList
         while (currentNode != null && currentNode.Pair.Key != key)
         {
             currentNode = currentNode.Next;
-        }
-
-        if (currentNode == null)
-        {
-            // Console.WriteLine($"{key} is not in the list.");
         }
         
         return currentNode;
