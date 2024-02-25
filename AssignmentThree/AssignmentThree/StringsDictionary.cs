@@ -21,12 +21,25 @@ public class StringsDictionary
         } else { _buckets[bucketPosition]!.Add(key, value); }
     }
      
-    public void Remove(string key)
+    public void RemoveBy(string key)
     {
+        int bucketPosition = CalculateHash(key) % InitialSize;
+        string message = $"{key} is not in the dictionary";
         
+        if (_buckets[bucketPosition] != null)
+        {
+            LinkedListNode? node = _buckets[bucketPosition]!.GetBy(key);
+
+            if (node != null)
+            {
+                _buckets[bucketPosition]!.RemoveBy(key);
+            }
+            else { Console.WriteLine(message); }
+        }
+        else { Console.WriteLine(message); }
     }
     
-    public string? Get(string key)
+    public string? GetBy(string key)
     {
         
     }
