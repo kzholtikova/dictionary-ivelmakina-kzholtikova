@@ -7,7 +7,18 @@ public class StringsDictionary
 
     public void Add(string key, string value)
     {
+        int bucketPosition = CalculateHash(key) % InitialSize;
         
+        if (_buckets[bucketPosition] == null)
+        {
+            _buckets[bucketPosition] = new LinkedList();
+        }
+        
+        LinkedListNode? node = _buckets[bucketPosition]!.GetBy(key);
+        if (node != null)
+        {
+            node.Pair.Value = value;
+        } else { _buckets[bucketPosition]!.Add(key, value); }
     }
      
     public void Remove(string key)
