@@ -29,7 +29,20 @@ class Program
 
     private static StringsDictionary? LoadDictionaryFromFile(string filePath)
     {
-        
+        string[] dictLines = File.ReadAllLines(filePath);
+        StringsDictionary dictionary = new StringsDictionary();
+
+        foreach (string line in dictLines)
+        {
+            string[] parts = line.Split("|");
+
+            string word = parts[0];
+            string definition = parts[2];
+
+            dictionary.Add(word, definition);
+        }
+
+        return dictionary;
     }
 
     private static void RunDictionaryInteractiveMode(StringsDictionary? dictionary)
