@@ -51,7 +51,7 @@ public class LinkedList
 
         if (currentNode == null)
         {
-            // Console.WriteLine($"{key} is not in the list."); doesn't show that key is not present in the dict
+            // Console.WriteLine($"{key} is not in the list.");
         }
         
         return currentNode;
