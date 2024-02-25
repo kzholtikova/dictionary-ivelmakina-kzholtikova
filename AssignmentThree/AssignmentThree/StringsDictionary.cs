@@ -22,7 +22,15 @@ public class StringsDictionary
 
     private int CalculateHash(string key)
     {
-        
+        const int prime = 31; // common prime number for hash functions
+        int hash = 0;
+
+        foreach (char c in key)
+        {
+            hash = Math.Abs((hash * prime) + c);
+        }
+
+        return hash;
     }
 
     public override string ToString()
