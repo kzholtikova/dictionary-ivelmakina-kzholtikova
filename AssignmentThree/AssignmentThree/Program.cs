@@ -4,30 +4,16 @@ class Program
 {
     public static void Main()
     {
-        string filePath = "C:/run" +
-                          "Users/user/Documents/GitHub/assignment-three-v3-ivelmakina-kzholtikova/" +
-                          "AssignmentThree/AssignmentThree/Dictionary.txt"; // change filepath
+        string filePath = "C:\\Users\\user\\Documents\\GitHub\\assignment-three-v3-ivelmakina-kzholtikova\\AssignmentThree\\AssignmentThree\\Dictionary.txt"; 
 
         if (File.Exists(filePath))
         {
-            StringsDictionary? dictionary = LoadDictionaryFromFile(filePath);
-
-            if (dictionary != null)
-            {
-                RunDictionaryInteractiveMode(dictionary);
-            }
-            else
-            {
-                Console.WriteLine("Failed to load the dictionary. Exiting...");
-            }
-        }
-        else
-        {
-            Console.WriteLine("File was not found");
-        }
+            StringsDictionary dictionary = LoadDictionaryFromFile(filePath);
+            RunDictionaryInteractiveMode(dictionary);
+        } else { Console.WriteLine("File was not found"); }
     }
 
-    private static StringsDictionary? LoadDictionaryFromFile(string filePath)
+    private static StringsDictionary LoadDictionaryFromFile(string filePath)
     {
         string[] dictLines = File.ReadAllLines(filePath);
         StringsDictionary dictionary = new StringsDictionary();
@@ -47,6 +33,31 @@ class Program
 
     private static void RunDictionaryInteractiveMode(StringsDictionary? dictionary)
     {
-        
+        bool exitRequested = false;
+
+        while (!exitRequested)
+        {
+            Console.WriteLine("Enter a word (or 'exit' to quit): ");
+            string? input = Console.ReadLine()?.ToLower();
+
+            if (input == "exit")
+            {
+                exitRequested = true;
+            }
+            else
+            {
+                if (input == null)
+                {
+                    continue;
+                }
+
+                string? definition = dictionary?.GetBy(input);
+
+                if (definition != null)
+                {
+                    Console.WriteLine($"Definition: {definition}");
+                } else { Console.WriteLine("Word was not found in the dictionary"); }
+            }
+        }
     }
 }
