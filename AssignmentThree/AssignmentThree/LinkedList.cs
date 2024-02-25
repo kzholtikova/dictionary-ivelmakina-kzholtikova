@@ -36,8 +36,8 @@ public class LinkedList
 
         if (currentNode?.Next != null)
         {
-            currentNode.Next = currentNode.Next.Next;
-        }
+            // Console.WriteLine($"{key} is not in the list.");
+        } else { currentNode.Next = currentNode.Next.Next; }
     }
     
     public LinkedListNode? GetBy(string key)
@@ -47,6 +47,11 @@ public class LinkedList
         while (currentNode != null && currentNode.Pair.Key != key)
         {
             currentNode = currentNode.Next;
+        }
+
+        if (currentNode == null)
+        {
+            // Console.WriteLine($"{key} is not in the list."); doesn't show that key is not present in the dict
         }
         
         return currentNode;
@@ -74,14 +79,14 @@ public class LinkedListNode(KeyValuePair pair, LinkedListNode? next = null)
 
     public override string ToString()
     {
-        return $"{Pair} ";
+        return $"{Pair}; ";
     }
 }
 
 public class KeyValuePair(string key, string value)
 {
     public string Key { get; } = key;
-    public string Value { get;  } = value;
+    public string Value { get; set; } = value;
 
     public override string ToString()
     {
