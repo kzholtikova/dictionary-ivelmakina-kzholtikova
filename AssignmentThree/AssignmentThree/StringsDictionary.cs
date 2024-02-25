@@ -72,6 +72,14 @@ public class StringsDictionary
 
     public override string ToString()
     {
-        
+        string result = "";
+
+        for (int i = 0; i < InitialSize; i++)
+        {
+            result += $"Bucket {i}: {_buckets[i]}\n";
+
+        }
+
+        return result;
     }
 }
