@@ -2,12 +2,47 @@ namespace AssignmentThree;
 
 public class StringsDictionary
 {
-    private const int InitialSize = 10;
-    private readonly LinkedList?[] _buckets = new LinkedList?[InitialSize];
+    private int _size = 10;
+    private LinkedList?[] _buckets = new LinkedList?[10];
+    private const double MarginalLoadFactor = 0.75;
+    private int _elementsCount;
+    
+    private double CalculateLoadFactor()
+    {
+        return (_elementsCount * 1.0) / _buckets.Length;
+    }
 
+    private void Rehash()
+    {
+        LinkedList?[] initialBuckets = _buckets;
+        
+        _size *= 2;
+        _buckets = new LinkedList?[_size];
+        _elementsCount = 0;
+
+        for (int i = 0; i < initialBuckets.Length; i++)
+        {
+            if (initialBuckets[i] == null)
+            {
+                continue;
+            }
+            
+            foreach (var pair in initialBuckets[i]!)
+            {
+                Add(pair.Key, pair.Value);
+            }
+        }
+
+    }
+    
     public void Add(string key, string value)
     {
-        int bucketPosition = CalculateHash(key) % InitialSize;
+        if (CalculateLoadFactor() > MarginalLoadFactor)
+        {
+            Rehash();
+        }
+        
+        int bucketPosition = CalculateHash(key) % _size;
         
         if (_buckets[bucketPosition] == null)
         {
@@ -15,15 +50,16 @@ public class StringsDictionary
         }
         
         LinkedListNode? node = _buckets[bucketPosition]?.GetBy(key);
-        if (node != null)
+        if (node == null)
         {
-            node.Pair.Value = value;
-        } else { _buckets[bucketPosition]?.Add(key, value); }
+            _buckets[bucketPosition]?.Add(new KeyValuePair(key, value));
+            _elementsCount++;
+        } else {  node.Pair.Value = value; }
     }
      
     public void RemoveBy(string key)
     {
-        int bucketPosition = CalculateHash(key) % InitialSize;
+        int bucketPosition = CalculateHash(key) % _size;
         
         if (_buckets[bucketPosition] != null)
         {
@@ -32,13 +68,14 @@ public class StringsDictionary
             if (node != null)
             {
                 _buckets[bucketPosition]?.RemoveBy(key);
-            } 
+                _elementsCount--;
+            }
         } 
     }
     
     public string? GetBy(string key)
     {
-        int bucketPosition = CalculateHash(key) % InitialSize;
+        int bucketPosition = CalculateHash(key) % _size;
         
         if (_buckets[bucketPosition] != null)
         {
@@ -70,7 +107,7 @@ public class StringsDictionary
     {
         string result = "";
 
-        for (int i = 0; i < InitialSize; i++)
+        for (int i = 0; i < _size; i++)
         {
             result += $"Bucket {i}: {_buckets[i]}\n";
 
