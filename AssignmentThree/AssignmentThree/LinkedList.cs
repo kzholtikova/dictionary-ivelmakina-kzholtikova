@@ -6,7 +6,7 @@ public class LinkedList : IEnumerable<KeyValuePair>
 {
     private LinkedListNode? _head;
 
-    public void Add(string key, string value)
+    public void Add(KeyValuePair pair)
     {
         if (_head != null)
         {
@@ -17,8 +17,8 @@ public class LinkedList : IEnumerable<KeyValuePair>
                 currentNode = currentNode.Next;
             }
 
-            currentNode.Next = new LinkedListNode(new KeyValuePair(key, value));
-        } else { _head = new LinkedListNode(new KeyValuePair(key, value)); }
+            currentNode.Next = new LinkedListNode(pair);
+        } else { _head = new LinkedListNode(pair); }
     }
 
     public void RemoveBy(string key)
