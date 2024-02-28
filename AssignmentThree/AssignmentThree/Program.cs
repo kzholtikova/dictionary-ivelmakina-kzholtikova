@@ -4,8 +4,8 @@ class Program
 {
     public static void Main()
     {
-        string filePath = "C:\\Users\\user\\Documents\\GitHub\\assignment-three-v3-ivelmakina-kzholtikova\\AssignmentThree\\AssignmentThree\\Dictionary.txt"; 
-
+        string filePath = "Dictionary.txt";
+        
         if (File.Exists(filePath))
         {
             StringsDictionary dictionary = LoadDictionaryFromFile(filePath);
@@ -61,3 +61,4 @@ class Program
         }
     }
 }
+
