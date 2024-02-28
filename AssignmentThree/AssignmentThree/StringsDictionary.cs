@@ -6,6 +6,29 @@ public class StringsDictionary
     private LinkedList?[] _buckets = new LinkedList?[10];
     private const double MarginalLoadFactor = 0.75;
     private int _elementsCount;
+
+    private void Rehash()
+    {
+        LinkedList?[] initialBuckets = _buckets;
+        
+        _size *= 2;
+        _buckets = new LinkedList?[_size];
+        _elementsCount = 0;
+
+        for (int i = 0; i < initialBuckets.Length; i++)
+        {
+            if (initialBuckets[i] == null)
+            {
+                continue;
+            }
+            
+            foreach (var pair in initialBuckets[i]!)
+            {
+                Add(pair.Key, pair.Value);
+            }
+        }
+
+    }
     
     public void Add(string key, string value)
     {
