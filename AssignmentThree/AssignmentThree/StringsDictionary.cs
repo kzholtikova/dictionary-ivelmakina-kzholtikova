@@ -6,6 +6,11 @@ public class StringsDictionary
     private LinkedList?[] _buckets = new LinkedList?[10];
     private const double MarginalLoadFactor = 0.75;
     private int _elementsCount;
+    
+    private double CalculateLoadFactor()
+    {
+        return (_elementsCount * 1.0) / _buckets.Length;
+    }
 
     private void Rehash()
     {
@@ -32,6 +37,11 @@ public class StringsDictionary
     
     public void Add(string key, string value)
     {
+        if (CalculateLoadFactor() > MarginalLoadFactor)
+        {
+            Rehash();
+        }
+        
         int bucketPosition = CalculateHash(key) % _size;
         
         if (_buckets[bucketPosition] == null)
