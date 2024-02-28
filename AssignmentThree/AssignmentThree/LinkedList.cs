@@ -23,19 +23,44 @@ public class LinkedList
         if (_head?.Pair.Key == key)
         {
             _head = _head.Next;
+            if (_head != null)
+            {
+                _head.Previous = null;
+            }
+
+            if (_head == null)
+            {
+                _tail = null;
+            }
+           
             return;
         }
-        
+
+        if (_tail?.Pair.Key == key)
+        {
+            _tail = _tail.Previous;
+            if (_tail != null)
+            {
+                _tail.Next = null;
+            }
+            
+            return;
+        }
+
         LinkedListNode? currentNode = _head;
         
         while (currentNode?.Next != null && currentNode.Next.Pair.Key != key)
         {
             currentNode = currentNode.Next;
         }
-
+        
         if (currentNode?.Next != null)
         {
             currentNode.Next = currentNode.Next.Next;
+            if (currentNode.Next != null)
+            {
+                currentNode.Next.Previous = currentNode;
+            }
         } 
     }
     
@@ -70,7 +95,6 @@ public class LinkedListNode(KeyValuePair pair, LinkedListNode? prev = null, Link
 {
     public KeyValuePair Pair { get; } = pair;
     public LinkedListNode? Previous { get; set; } = prev;
-
     public LinkedListNode? Next { get; set; } = next;
 
     public override string ToString()
