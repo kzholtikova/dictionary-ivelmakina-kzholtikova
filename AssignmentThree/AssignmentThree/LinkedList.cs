@@ -3,22 +3,21 @@ namespace AssignmentThree;
 public class LinkedList
 {
     private LinkedListNode? _head;
+    private LinkedListNode? _tail;
 
-    public void Add(string key, string value)
+    public void Add(KeyValuePair pair)
     {
-        if (_head != null)
+        if (_head == null || _tail == null)
         {
-            LinkedListNode currentNode = _head;
-            
-            while (currentNode.Next != null)
-            {
-                currentNode = currentNode.Next;
-            }
-
-            currentNode.Next = new LinkedListNode(new KeyValuePair(key, value));
-        } else { _head = new LinkedListNode(new KeyValuePair(key, value)); }
+            _head = new LinkedListNode(pair);
+            _tail = _head;
+            return;
+        }
+       
+        _tail.Next = new LinkedListNode(pair, _tail);
+        _tail = _tail.Next;
     }
-
+    
     public void RemoveBy(string key)
     {
         if (_head?.Pair.Key == key)
@@ -67,14 +66,16 @@ public class LinkedList
     }
 }
 
-public class LinkedListNode(KeyValuePair pair, LinkedListNode? next = null)
+public class LinkedListNode(KeyValuePair pair, LinkedListNode? prev = null, LinkedListNode? next = null)
 {
     public KeyValuePair Pair { get; } = pair;
+    public LinkedListNode? Previous { get; set; } = prev;
+
     public LinkedListNode? Next { get; set; } = next;
 
     public override string ToString()
     {
-        return $"{Pair}; ";
+        return $" prev: {Previous?.Pair.Key}, current: {Pair}, next: {Next?.Pair.Key},";
     }
 }
 

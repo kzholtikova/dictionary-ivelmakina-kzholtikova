@@ -18,7 +18,7 @@ public class StringsDictionary
         if (node != null)
         {
             node.Pair.Value = value;
-        } else { _buckets[bucketPosition]?.Add(key, value); }
+        } else { _buckets[bucketPosition]?.Add(new KeyValuePair(key, value)); }
     }
      
     public void RemoveBy(string key)
