@@ -110,7 +110,6 @@ public class StringsDictionary
         for (int i = 0; i < _size; i++)
         {
             result += $"Bucket {i}: {_buckets[i]}\n";
-
         }
 
         return result;

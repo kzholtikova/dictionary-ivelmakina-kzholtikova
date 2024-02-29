@@ -22,47 +22,24 @@ public class LinkedList : IEnumerable<KeyValuePair>
     
     public void RemoveBy(string key)
     {
-        if (_head?.Pair.Key == key)
-        {
-            _head = _head.Next;
-            if (_head != null)
-            {
-                _head.Previous = null;
-            }
-
-            if (_head == null)
-            {
-                _tail = null;
-            }
-           
-            return;
-        }
-
-        if (_tail?.Pair.Key == key)
-        {
-            _tail = _tail.Previous;
-            if (_tail != null)
-            {
-                _tail.Next = null;
-            }
-            
-            return;
-        }
-
         LinkedListNode? currentNode = _head;
         
-        while (currentNode?.Next != null && currentNode.Next.Pair.Key != key)
+        while (currentNode != null && currentNode.Pair.Key != key)
         {
             currentNode = currentNode.Next;
         }
         
-        if (currentNode?.Next != null)
+        if (currentNode != null)
         {
-            currentNode.Next = currentNode.Next.Next;
+            if (currentNode.Previous != null)
+            {
+                currentNode.Previous.Next = currentNode.Next;
+            } else { _head = currentNode.Next; }
+            
             if (currentNode.Next != null)
             {
-                currentNode.Next.Previous = currentNode;
-            }
+                currentNode.Next.Previous = currentNode.Previous;
+            } else { _tail = currentNode.Previous; }
         } 
     }
     
