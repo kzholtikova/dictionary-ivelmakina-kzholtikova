@@ -5,40 +5,64 @@ namespace AssignmentThree;
 public class LinkedList : IEnumerable<KeyValuePair>
 {
     private LinkedListNode? _head;
+    private LinkedListNode? _tail;
 
     public void Add(KeyValuePair pair)
     {
-        if (_head != null)
+        if (_head == null || _tail == null)
         {
-            LinkedListNode currentNode = _head;
-            
-            while (currentNode.Next != null)
-            {
-                currentNode = currentNode.Next;
-            }
-
-            currentNode.Next = new LinkedListNode(pair);
-        } else { _head = new LinkedListNode(pair); }
+            _head = new LinkedListNode(pair);
+            _tail = _head;
+            return;
+        }
+       
+        _tail.Next = new LinkedListNode(pair, _tail);
+        _tail = _tail.Next;
     }
-
+    
     public void RemoveBy(string key)
     {
         if (_head?.Pair.Key == key)
         {
             _head = _head.Next;
+            if (_head != null)
+            {
+                _head.Previous = null;
+            }
+
+            if (_head == null)
+            {
+                _tail = null;
+            }
+           
             return;
         }
-        
+
+        if (_tail?.Pair.Key == key)
+        {
+            _tail = _tail.Previous;
+            if (_tail != null)
+            {
+                _tail.Next = null;
+            }
+            
+            return;
+        }
+
         LinkedListNode? currentNode = _head;
         
         while (currentNode?.Next != null && currentNode.Next.Pair.Key != key)
         {
             currentNode = currentNode.Next;
         }
-
+        
         if (currentNode?.Next != null)
         {
             currentNode.Next = currentNode.Next.Next;
+            if (currentNode.Next != null)
+            {
+                currentNode.Next.Previous = currentNode;
+            }
         } 
     }
     
@@ -85,14 +109,15 @@ public class LinkedList : IEnumerable<KeyValuePair>
     }
 }
 
-public class LinkedListNode(KeyValuePair pair, LinkedListNode? next = null)
+public class LinkedListNode(KeyValuePair pair, LinkedListNode? prev = null, LinkedListNode? next = null)
 {
     public KeyValuePair Pair { get; } = pair;
+    public LinkedListNode? Previous { get; set; } = prev;
     public LinkedListNode? Next { get; set; } = next;
 
     public override string ToString()
     {
-        return $"{Pair}; ";
+        return $" prev: {Previous?.Pair.Key}, current: {Pair}, next: {Next?.Pair.Key},";
     }
 }
 
