@@ -1,6 +1,8 @@
+using System.Collections;
+
 namespace AssignmentThree;
 
-public class LinkedList
+public class LinkedList : IEnumerable<KeyValuePair>
 {
     private LinkedListNode? _head;
     private LinkedListNode? _tail;
@@ -88,6 +90,22 @@ public class LinkedList
         }
 
         return result;
+    }
+
+    public IEnumerator<KeyValuePair> GetEnumerator()
+    {
+        LinkedListNode? currentNode = _head;
+
+        while (currentNode != null)
+        {
+            yield return currentNode.Pair;
+            currentNode = currentNode.Next;
+        }
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 }
 
